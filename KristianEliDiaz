@@ -1,0 +1,57 @@
+#R PROGRAMING, JOHN HOPKINS UNIVERSITY
+#CODED BY K.E.D.D.
+#INSTRUCTION 1: MakeCacheMatrix: THIS FUNCTION CREATES A SPEACIAL "MATRIX" OBJECT
+#THEREFORE, "MakeCacheMatrix" IS MANDATORT ANME FOR OBJECT
+#WITH CACHING ITS INVERSE AS FUNCTION
+
+#ASSIGNING MATRIX TO SPECIFIED OBJECT NAME
+MakeCacheMatrix<-function(x=matrix())
+{
+#NULLIFY MATRIX PROPERTIES TO AVOID CONFLICT
+  Null<-NULL
+  #SET MATRIX AS A FUNCTION OF Y
+  set<-function(y)
+  {
+    x<<-y
+    Null<<-NULL
+  }
+#CALL MATRIX
+get<-function()x
+#INVERSING MATRIX
+setInverse<-function(inverse)
+  {
+  NULL<<-inverse
+  }
+#CALL INVERSE MATRIX
+getInverse<-function()
+  {
+  Null
+  }
+#CALL OBJECTS
+list(set=set, get=get, setInverse=setInverse, getInverse=getInverse)
+}
+
+#"MakeCacheMatrix" COMPUTES THE INVERSE MATRIX
+#IF UNCHANGED AFTER COMPUTATION, THEN "CacheSolve" FOLLOW TO RETRIEVE INVERSE MATRIX
+CacheSolve<-function (x, ...)
+{
+  #CALL MATRIX AS INVERS OF "X"
+  Null<-X$getInverse()
+  #IF UNABLE TO CALL, THEN FOLLOWS CONDITION
+  {
+    if(!is.null(Null))
+    {
+      message ("getting matrix cache")
+      return(Null)
+    }
+#CALL MATRIX OBJECT
+matrix<-X$get()
+#SOLVE MATRIX BY SPECIFIED OPERATION
+Null<solve(matrix,...)
+#SET INVERSE AS OBJECT X
+X$setInverse(Null)
+#CALL OBJECT
+Null
+}
+
+end
